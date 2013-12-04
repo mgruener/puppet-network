@@ -1,4 +1,4 @@
-class network ( $interfaces = hiera_hash("interfaces")) {
+class network ( $interfaces = hiera_hash("interfaces",undef)) {
   case $osfamily {
     'RedHat': { package { "net-tools": }
                 $resource = "${module_name}::ifcfg"
