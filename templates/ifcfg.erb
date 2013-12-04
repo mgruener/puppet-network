@@ -2,92 +2,69 @@
 # File is managed by puppet #
 #############################
 <% if @bondig_opts %>
-BONDING_OPTS= <%= @bondig_opts %>
-<% end %>
+BONDING_OPTS=<%= @bondig_opts %><% end %>
 <% if @bootproto %>
-BOOTPROTO= <%= @bootproto %>
-<% end %>
+BOOTPROTO=<%= @bootproto %> <% end %>
 <% if @broadcast %>
-BROADCAST= <%= @broadcast %>
-<% end %>
+BROADCAST=<%= @broadcast %> <% end %>
 <% if @device %>
-DEVICE= <%= @device %>
-<% end %>
+DEVICE=<%= @device %> <% end %>
 <% if @dhcp_hostname %>
-DHCP_HOSTNAME= <%= @dhcp_hostname %>
-<% end %>
+DHCP_HOSTNAME=<%= @dhcp_hostname %> <% end %>
 <% if @dhcpv6c %>
-DHCPV6C= <%= @dhcpv6c %>
-<% end %>
+DHCPV6C=<%= @dhcpv6c %> <% end %>
 <% if @dhcpv6c_options %>
-DHCPV6C_OPTIONS= <%= @dhcpv6c_options %>
-<% end %>
+DHCPV6C_OPTIONS=<%= @dhcpv6c_options %> <% end %>
 <% if @dns1 %>
-DNS1= <%= @dns1 %>
-<% end %>
+DNS1=<%= @dns1 %> <% end %>
 <% if @dns2 %>
-DNS2= <%= @dns2 %>
-<% end %>
+DNS2=<%= @dns2 %> <% end %>
 <% if @ethtool_opts %>
-ETHTOOL_OPTS= <%= @ethtool_opts %>
-<% end %>
+ETHTOOL_OPTS=<%= @ethtool_opts %> <% end %>
 <% if @hotplug %>
-HOTPLUG= <%= @hotplug %>
-<% end %>
-<% if @hwaddr %>
-HWADDR= <%= @hwaddr %>
-<% end %>
+HOTPLUG=<%= @hotplug %> <% end %>
+<% if @ifhwaddr %>
+HWADDR=<%= @ifhwaddr %> <% end %>
 <% if @ipaddr %>
-IPADDR= <%= @ipaddr %>
-<% end %>
+IPADDR=<%= @ipaddr %> <% end %>
 <% if @ipv6addr %>
-IPV6ADDR= <%= @ipv6addr %>
-<% end %>
+IPV6ADDR=<%= @ipv6addr %> <% end %>
 <% if @ipv6addr_secondaries %>
-IPV6ADDR_SECONDARIES= <%= @ipv6addr_secondaries %>
-<% end %>
+IPV6ADDR_SECONDARIES=<%= @ipv6addr_secondaries %> <% end %>
 <% if @ipv6_privacy_prefer_public_ip %>
-IPV6_PRIVACY_PREFER_PUBLIC_IP= <%= @ipv6_privacy_prefer_public_ip %>
-<% end %>
+IPV6_PRIVACY_PREFER_PUBLIC_IP=<%= @ipv6_privacy_prefer_public_ip %> <% end %>
 <% if @linkdelay %>
-LINKDELAY= <%= @linkdelay %>
-<% end %>
+LINKDELAY=<%= @linkdelay %> <% end %>
 <% if @macaddr %>
-MACADDR= <%= @macaddr %>
-<% end %>
+MACADDR=<%= @macaddr %> <% end %>
 <% if @master %>
-MASTER= <%= @master %>
-<% end %>
+MASTER=<%= @master %> <% end %>
 <% if @netmask %>
-NETMASK= <%= @netmask %>
-<% end %>
+NETMASK=<%= @netmask %> <% end %>
 <% if @network %>
-NETWORK= <%= @network %>
-<% end %>
+NETWORK=<%= @network %> <% end %>
 <% if @nm_controlled %>
-NM_CONTROLLED= <%= @nm_controlled %>
-<% end %>
+NM_CONTROLLED=<%= @nm_controlled %> <% end %>
 <% if @onboot %>
-ONBOOT= <%= @onboot %>
-<% end %>
+ONBOOT=<%= @onboot %> <% end %>
 <% if @peerdns %>
-PEERDNS= <%= @peerdns %>
-<% end %>
+PEERDNS=<%= @peerdns %> <% end %>
 <% if @slave %>
-SLAVE= <%= @slave %>
-<% end %>
+SLAVE=<%= @slave %> <% end %>
 <% if @srcaddr %>
-SRCADDR= <%= @srcaddr %>
-<% end %>
+SRCADDR=<%= @srcaddr %> <% end %>
 <% if @userctl %>
-USERCTL= <%= @userctl %>
-<% end %>
+USERCTL=<%= @userctl %> <% end %>
 <% if @scope %>
-SCOPE= <%= @scope %>
-<% end %>
+SCOPE="<%= @scope %>" <% end %>
 <% if @name %>
-NAME= <%= @name %>
-<% end %>
+NAME=<%= @name %> <% end %>
 <% if @uuid %>
-UUID= <%= @uuid %>
-<% end %>
+UUID=<%= @uuid %> <% end %>
+<% if @type %>
+TYPE=<%= @type %> <% end %>
+<% if @gateway %>
+GATEWAY=<%= @gateway %> <% end %>
+<% if @ipv6init %>
+IPV6INIT=<%= @ipv6init %> <% end %>
+
