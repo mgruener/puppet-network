@@ -1,70 +1,102 @@
 #############################
 # File is managed by puppet #
 #############################
-<% if @bondig_opts %>
-BONDING_OPTS=<%= @bondig_opts %><% end %>
-<% if @bootproto %>
-BOOTPROTO=<%= @bootproto %> <% end %>
-<% if @broadcast %>
-BROADCAST=<%= @broadcast %> <% end %>
-<% if @device %>
-DEVICE=<%= @device %> <% end %>
-<% if @dhcp_hostname %>
-DHCP_HOSTNAME=<%= @dhcp_hostname %> <% end %>
-<% if @dhcpv6c %>
-DHCPV6C=<%= @dhcpv6c %> <% end %>
-<% if @dhcpv6c_options %>
-DHCPV6C_OPTIONS=<%= @dhcpv6c_options %> <% end %>
-<% if @dns1 %>
-DNS1=<%= @dns1 %> <% end %>
-<% if @dns2 %>
-DNS2=<%= @dns2 %> <% end %>
-<% if @ethtool_opts %>
-ETHTOOL_OPTS=<%= @ethtool_opts %> <% end %>
-<% if @hotplug %>
-HOTPLUG=<%= @hotplug %> <% end %>
-<% if @ifhwaddr %>
-HWADDR=<%= @ifhwaddr %> <% end %>
-<% if @ipaddr %>
-IPADDR=<%= @ipaddr %> <% end %>
-<% if @ipv6addr %>
-IPV6ADDR=<%= @ipv6addr %> <% end %>
-<% if @ipv6addr_secondaries %>
-IPV6ADDR_SECONDARIES=<%= @ipv6addr_secondaries %> <% end %>
-<% if @ipv6_privacy_prefer_public_ip %>
-IPV6_PRIVACY_PREFER_PUBLIC_IP=<%= @ipv6_privacy_prefer_public_ip %> <% end %>
-<% if @linkdelay %>
-LINKDELAY=<%= @linkdelay %> <% end %>
-<% if @macaddr %>
-MACADDR=<%= @macaddr %> <% end %>
-<% if @master %>
-MASTER=<%= @master %> <% end %>
-<% if @netmask %>
-NETMASK=<%= @netmask %> <% end %>
-<% if @network %>
-NETWORK=<%= @network %> <% end %>
-<% if @nm_controlled %>
-NM_CONTROLLED=<%= @nm_controlled %> <% end %>
-<% if @onboot %>
-ONBOOT=<%= @onboot %> <% end %>
-<% if @peerdns %>
-PEERDNS=<%= @peerdns %> <% end %>
-<% if @slave %>
-SLAVE=<%= @slave %> <% end %>
-<% if @srcaddr %>
-SRCADDR=<%= @srcaddr %> <% end %>
-<% if @userctl %>
-USERCTL=<%= @userctl %> <% end %>
-<% if @scope %>
-SCOPE="<%= @scope %>" <% end %>
-<% if @name %>
-NAME=<%= @name %> <% end %>
-<% if @uuid %>
-UUID=<%= @uuid %> <% end %>
-<% if @type %>
-TYPE=<%= @type %> <% end %>
-<% if @gateway %>
-GATEWAY=<%= @gateway %> <% end %>
-<% if @ipv6init %>
-IPV6INIT=<%= @ipv6init %> <% end %>
-
+<% if defined?(@bondig_opts) -%>
+BONDING_OPTS="<%= @bondig_opts %>"
+<% end -%>
+<% if defined?(@bootproto) -%>
+BOOTPROTO=<%= @bootproto %>
+<% end -%>
+<% if defined?(@broadcast) -%>
+BROADCAST=<%= @broadcast %>
+<% end -%>
+<% if defined?(@device) -%>
+DEVICE=<%= @device %>
+<% end -%>
+<% if defined?(@dhcp_hostname) -%>
+DHCP_HOSTNAME="<%= @dhcp_hostname %>"
+<% end -%>
+<% if defined?(@dhcpv6c) -%>
+DHCPV6C=<%= @dhcpv6c  == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@dhcpv6c_options) -%>
+DHCPV6C_OPTIONS="<%= @dhcpv6c_options %>"
+<% end -%>
+<% if defined?(@dns1) -%>
+DNS1=<%= @dns1 %>
+<% end -%>
+<% if defined?(@dns2) -%>
+DNS2=<%= @dns2 %>
+<% end -%>
+<% if defined?(@ethtool_opts) -%>
+ETHTOOL_OPTS="<%= @ethtool_opts %>"
+<% end -%>
+<% if defined?(@hotplug) -%>
+HOTPLUG=<%= @hotplug  == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@ifhwaddr) -%>
+HWADDR=<%= @ifhwaddr %>
+<% end -%>
+<% if defined?(@ipaddr) -%>
+IPADDR=<%= @ipaddr %>
+<% end -%>
+<% if defined?(@ipv6addr) -%>
+IPV6ADDR=<%= @ipv6addr %>
+<% end -%>
+<% if defined?(@ipv6addr_secondaries) -%>
+IPV6ADDR_SECONDARIES=<%= @ipv6addr_secondaries %>
+<% end -%>
+<% if defined?(@ipv6_privacy_prefer_public_ip) -%>
+IPV6_PRIVACY_PREFER_PUBLIC_IP=<%= @ipv6_privacy_prefer_public_ip  == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@linkdelay) -%>
+LINKDELAY=<%= @linkdelay %>
+<% end -%>
+<% if defined?(@macaddr) -%>
+MACADDR=<%= @macaddr %>
+<% end -%>
+<% if defined?(@master) -%>
+MASTER=<%= @master %>
+<% end -%>
+<% if defined?(@netmask) -%>
+NETMASK=<%= @netmask %>
+<% end -%>
+<% if defined?(@network) -%>
+NETWORK=<%= @network %>
+<% end -%>
+<% if defined?(@nm_controlled) -%>
+NM_CONTROLLED=<%= @nm_controlled == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@onboot) -%>
+ONBOOT=<%= @onboot == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@peerdns) -%>
+PEERDNS=<%= @peerdns  == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@slave) -%>
+SLAVE=<%= @slave  == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@srcaddr) -%>
+SRCADDR=<%= @srcaddr %>
+<% end -%>
+<% if defined?(@userctl) -%>
+USERCTL=<%= @userctl  == 'true' ? 'yes' : 'no' %>
+<% end -%>
+<% if defined?(@scope) -%>
+SCOPE="<%= @scope %>"
+<% end -%>
+<% if defined?(@name) -%>
+NAME="<%= @name %>"
+<% end -%>
+<% if defined?(@uuid) -%>
+UUID="<%= @uuid %>"
+<% end -%>
+<% if defined?(@type) -%>
+TYPE="<%= @type %>"
+<% end -%>
+<% if defined?(@gateway) -%>
+GATEWAY=<%= @gateway %>
+<% end -%>
+<% if defined?(@ipv6init) -%>
+IPV6INIT=<%= @ipv6init  == 'true' ? "yes" : "no" %>
+<% end -%>
