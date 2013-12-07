@@ -3,6 +3,7 @@ define network::ifcfg ( $ensure = present,
                         $bonding_opts = undef,
                         $bootproto = 'dhcp',
                         $broadcast = undef,
+                        $delay = undef,
                         $device = $title,
                         $dhcp_hostname = undef,
                         $dhcpv6c_options = undef,
@@ -28,6 +29,7 @@ define network::ifcfg ( $ensure = present,
                         $scope = undef,
                         $slave = undef,
                         $srcaddr = undef,
+                        $stp = undef,
                         $type = 'Ethernet',
                         $userctl = undef,
                         $uuid = undef, ) {
@@ -45,6 +47,12 @@ define network::ifcfg ( $ensure = present,
   if $broadcast != undef {
     if !is_ip_address($broadcast) {
       warning("${broadcast} is not a valid broadcast addess")
+    }
+  }
+
+  if $delay != undef {
+    if !is_num($delay) {
+      warning("${delay} is not a valid number")
     }
   }
 
@@ -101,8 +109,19 @@ define network::ifcfg ( $ensure = present,
   if $slave != undef {
     validate_bool($slave)
   }
+  if $stp != undef {
+    validate_bool($stp)
+  }
   if $userctl != undef {
     validate_bool($userctl)
+  }
+
+  case $type {
+    'Bridge': { package { 'bridge-utils':
+                  ensure => present
+                }
+    }
+    default:  {}
   }
 
   # map ensure to absent/file for file as there are other

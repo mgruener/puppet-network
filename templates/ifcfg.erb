@@ -10,6 +10,9 @@ BOOTPROTO=<%= @bootproto %>
 <% if defined?(@broadcast) -%>
 BROADCAST=<%= @broadcast %>
 <% end -%>
+<% if defined?(@delay) -%>
+DELAY=<%= @delay %>
+<% end -%>
 <% if defined?(@device) -%>
 DEVICE=<%= @device %>
 <% end -%>
@@ -84,6 +87,9 @@ USERCTL=<%= @userctl  == 'true' ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@scope) -%>
 SCOPE="<%= @scope %>"
+<% end -%>
+<% if defined?(@stp) -%>
+STP=<%= @stp  == 'true' ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@name) -%>
 NAME="<%= @name %>"
