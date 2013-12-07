@@ -52,7 +52,7 @@ define network::ifcfg ( $ensure = present,
   }
 
   if $delay != undef {
-    if !is_num($delay) {
+    if !is_numeric($delay) {
       warning("${delay} is not a valid number")
     }
   }
@@ -70,7 +70,7 @@ define network::ifcfg ( $ensure = present,
   }
 
   if $linkdelay != undef {
-    if !is_num($linkdelay) {
+    if !is_numeric($linkdelay) {
       warning("${linkdelay} is not a valid number")
     }
   }
