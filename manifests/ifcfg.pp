@@ -35,13 +35,18 @@ define network::ifcfg ( $ensure = present,
                         $userctl = undef,
                         $uuid = undef, ) {
 
-  # if the hardware address of the device was not provided
-  # as parameter, try to use the according fact
-  if $hwaddr != undef  {
-    $ifhwaddr = $hwaddr
-  }
-  else {
-    $ifhwaddr = getvar("::macaddress_${title}")
+  # ignore the hwaddr parameter if the interface is a bridge
+  # bridges are virtual devices that should not be configured
+  # with a hardware adresse of an existing physical device
+  if $type != "Bridge" {
+    if $hwaddr != undef  {
+      $ifhwaddr = $hwaddr
+    }
+    else {
+       # if the hardware address of the device was not provided
+       # as parameter, try to use the according fact
+      $ifhwaddr = getvar("::macaddress_${title}")
+    }
   }
 
   # do some sanity checks
