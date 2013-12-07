@@ -38,7 +38,7 @@ define network::ifcfg ( $ensure = present,
   # ignore the hwaddr parameter if the interface is a bridge
   # bridges are virtual devices that should not be configured
   # with a hardware adresse of an existing physical device
-  if $type != "Bridge" {
+  if $type != 'Bridge' {
     if $hwaddr != undef  {
       $ifhwaddr = $hwaddr
     }
