@@ -70,7 +70,7 @@ define network::ifcfg ( $ensure = present,
 
   if $linkdelay != undef {
     if !is_num($linkdelay) {
-      warning("$linkdelay is not a valid number")
+      warning("${linkdelay} is not a valid number")
     }
   }
   if $macaddr != undef {
