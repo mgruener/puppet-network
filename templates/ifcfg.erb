@@ -23,7 +23,7 @@ DEVICE=<%= @device %>
 DHCP_HOSTNAME="<%= @dhcp_hostname %>"
 <% end -%>
 <% if defined?(@dhcpv6c) -%>
-DHCPV6C=<%= @dhcpv6c  == 'true' ? 'yes' : 'no' %>
+DHCPV6C=<%= @dhcpv6c  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@dhcpv6c_options) -%>
 DHCPV6C_OPTIONS="<%= @dhcpv6c_options %>"
@@ -38,7 +38,7 @@ DNS2=<%= @dns2 %>
 ETHTOOL_OPTS="<%= @ethtool_opts %>"
 <% end -%>
 <% if defined?(@hotplug) -%>
-HOTPLUG=<%= @hotplug  == 'true' ? 'yes' : 'no' %>
+HOTPLUG=<%= @hotplug  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@ifhwaddr) -%>
 HWADDR=<%= @ifhwaddr %>
@@ -53,7 +53,7 @@ IPV6ADDR=<%= @ipv6addr %>
 IPV6ADDR_SECONDARIES=<%= @ipv6addr_secondaries %>
 <% end -%>
 <% if defined?(@ipv6_privacy_prefer_public_ip) -%>
-IPV6_PRIVACY_PREFER_PUBLIC_IP=<%= @ipv6_privacy_prefer_public_ip  == 'true' ? 'yes' : 'no' %>
+IPV6_PRIVACY_PREFER_PUBLIC_IP=<%= @ipv6_privacy_prefer_public_ip  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@linkdelay) -%>
 LINKDELAY=<%= @linkdelay %>
@@ -71,28 +71,28 @@ NETMASK=<%= @netmask %>
 NETWORK=<%= @network %>
 <% end -%>
 <% if defined?(@nm_controlled) -%>
-NM_CONTROLLED=<%= @nm_controlled == 'true' ? 'yes' : 'no' %>
+NM_CONTROLLED=<%= @nm_controlled == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@onboot) -%>
-ONBOOT=<%= @onboot == 'true' ? 'yes' : 'no' %>
+ONBOOT=<%= @onboot == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@peerdns) -%>
-PEERDNS=<%= @peerdns  == 'true' ? 'yes' : 'no' %>
+PEERDNS=<%= @peerdns  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@slave) -%>
-SLAVE=<%= @slave  == 'true' ? 'yes' : 'no' %>
+SLAVE=<%= @slave  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@srcaddr) -%>
 SRCADDR=<%= @srcaddr %>
 <% end -%>
 <% if defined?(@userctl) -%>
-USERCTL=<%= @userctl  == 'true' ? 'yes' : 'no' %>
+USERCTL=<%= @userctl  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@scope) -%>
 SCOPE="<%= @scope %>"
 <% end -%>
 <% if defined?(@stp) -%>
-STP=<%= @stp  == 'true' ? 'yes' : 'no' %>
+STP=<%= @stp  == true ? 'yes' : 'no' %>
 <% end -%>
 <% if defined?(@name) -%>
 NAME="<%= @name %>"
@@ -107,5 +107,5 @@ TYPE="<%= @type %>"
 GATEWAY=<%= @gateway %>
 <% end -%>
 <% if defined?(@ipv6init) -%>
-IPV6INIT=<%= @ipv6init  == 'true' ? "yes" : "no" %>
+IPV6INIT=<%= @ipv6init  == true ? "yes" : "no" %>
 <% end -%>
