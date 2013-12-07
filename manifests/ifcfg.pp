@@ -2,6 +2,7 @@
 define network::ifcfg ( $ensure = present,
                         $bonding_opts = undef,
                         $bootproto = 'dhcp',
+                        $bridge = undef,
                         $broadcast = undef,
                         $delay = undef,
                         $device = $title,
