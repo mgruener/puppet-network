@@ -125,7 +125,7 @@ define network::ifcfg ( $ensure = present,
   }
 
   case $type {
-    'Bridge': { ensure_packages('bridge-utils') }
+    'Bridge': { ensure_packages(['bridge-utils']) }
     default:  {}
   }
 

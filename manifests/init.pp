@@ -45,6 +45,6 @@ class network ( $interfaces = hiera_hash("${module_name}::interfaces",undef),
   }
 
   if $interfaces {
-    create_resources($resource,$interfaces, require => [ Service[$servicename], Service['network'] ])
+    create_resources($resource,$interfaces, { require => [ Service[$servicename], Service['network']] })
   }
 }
