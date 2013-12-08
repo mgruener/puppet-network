@@ -3,10 +3,11 @@ class network ( $interfaces = hiera_hash("${module_name}::interfaces",undef),
 
   validate_bool($networkmanager)
 
-  case $osfamily {
-    'RedHat': { package { "net-tools": }
+  case $::osfamily {
+    'RedHat': { package { 'net-tools': }
                 $resource = "${module_name}::ifcfg"
     }
+    default: { fail("${::osfamily} not supported") }
   }
 
   case $::operatingsystem {
