@@ -45,7 +45,9 @@ define network::ifcfg ( $ensure = present,
     else {
       # if the hardware address of the device was not provided
       # as parameter, try to use the according fact
-      $ifhwaddr = getvar("::macaddress_${title}")
+      if getvar("::macaddress_${title}") {
+        $ifhwaddr = getvar("::macaddress_${title}")
+      }
     }
   }
 
