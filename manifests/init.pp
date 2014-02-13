@@ -1,8 +1,14 @@
 class network (
   $interfaces = undef,
   $networkmanager = false,
+  $network_servicename = $::network::params::network_servicename,
+  $network_serviceprovider = $::network::params::network_serviceprovider,
+  $nm_servicename = $::network::params::nm_servicename,
+  $nm_serviceprovider = $::network::params::nm_serviceprovider,
+  $network_packages = $::network::params::packages,
+  $network_resource = $::network::params::network_resource,
   $hiera_merge = false,
-) {
+) inherits network::params {
 
   $myclass = $module_name
 
@@ -32,44 +38,32 @@ class network (
     }
   }
 
-  case $::osfamily {
-    'RedHat': { package { 'net-tools': }
-                $resource = "${module_name}::ifcfg"
-    }
-    default: { fail("${::osfamily} not supported") }
-  }
-
-  case $::operatingsystem {
-    'Fedora': { $servicename = 'NetworkManager.service'
-                $serviceprovider = systemd
-    }
-    default: {  $servicename = 'NetworkManager'
-                $serviceprovider = undef
-    }
-  }
+  package { $network_packages: }
 
   if $networkmanager_real {
-    service { $servicename:
+    service { $nm_servicename:
       ensure   => running,
       enable   => true,
-      provider => $serviceprovider,
+      provider => $nm_serviceprovider,
     }
 
-    service { 'network':
-      ensure => stopped,
-      enable => false,
+    service { $network_servicename:
+      ensure   => stopped,
+      enable   => false,
+      provider => $network_serviceprovider,
     }
   }
   else {
-    service { $servicename:
+    service { $nm_servicename:
       ensure   => stopped,
       enable   => false,
-      provider => $serviceprovider,
+      provider => $nm_serviceprovider,
     }
 
-    service { 'network':
-      ensure => running,
-      enable => true,
+    service { $network_servicename:
+      ensure   => running,
+      enable   => true,
+      provider => $network_serviceprovider,
     }
   }
 
@@ -84,6 +78,9 @@ class network (
       $interfaces_real = $interfaces
     }
 
-    create_resources($resource,$interfaces_real, { require => [ Service[$servicename], Service['network']] })
+    create_resources( $network_resource,
+                      $interfaces_real,
+                      { require => [ Service[$nm_servicename], Service[$network_servicename]] }
+    )
   }
 }
