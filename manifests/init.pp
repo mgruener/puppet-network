@@ -1,5 +1,7 @@
-class network ( $interfaces = hiera_hash("${module_name}::interfaces",undef),
-                $networkmanager = hiera("${module_name}::networkmanager",false)) {
+class network ( 
+  $interfaces = hiera_hash("${module_name}::interfaces",undef),
+  $networkmanager = hiera("${module_name}::networkmanager",false)
+) {
 
   validate_bool($networkmanager)
 
